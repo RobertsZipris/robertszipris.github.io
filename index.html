@@ -4,10 +4,522 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Video Editor & Voice Actor</title>
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- Настройки для красивого превью в Telegram, Discord и соцсетях (Open Graph) -->
+    <meta property="og:title" content="Portfolio | Video Editor & Voice Actor">
+    <meta property="og:description" content="Professional video editing, voiceover, and localization (EN/RU/LV) to help your content scale.">
+    <meta property="og:image" content="https://твой-сайт.com/preview.jpg"> <!-- Замени на адрес своего превью, когда зальешь на хостинг -->
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Иконка вкладки (Favicon) из эмодзи хлопушки -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Все CSS стили проекта объединены здесь -->
+    <style>
+        /* Общие настройки и сброс */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #080b11;
+            color: #f3f4f6;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Навигационная панель */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(8, 11, 17, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 20px;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .nav-links .nav-btn {
+            background-color: #6366f1;
+            color: white;
+            padding: 8px 18px;
+            border-radius: 6px;
+        }
+
+        .nav-links .nav-btn:hover {
+            background-color: #4f46e5;
+        }
+
+        /* Главный блок (Hero) */
+        .hero {
+            padding: 180px 0 100px 0;
+            text-align: center;
+            background: radial-gradient(circle at top, rgba(99, 102, 241, 0.15) 0%, transparent 60%);
+        }
+
+        .badge {
+            background: rgba(99, 102, 241, 0.1);
+            color: #818cf8;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            display: inline-block;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .highlight {
+            color: #6366f1;
+            background: linear-gradient(to right, #818cf8, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #9ca3af;
+            max-width: 760px;
+            margin: 0 auto 40px auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.2s ease;
+        }
+
+        .btn.primary {
+            background-color: #6366f1;
+            color: white;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn.primary:hover {
+            background-color: #4f46e5;
+            transform: translateY(-2px);
+        }
+
+        .btn.secondary {
+            background-color: #111827;
+            color: #f3f4f6;
+            border: 1px solid #1f2937;
+        }
+
+        .btn.secondary:hover {
+            background-color: #1f2937;
+            transform: translateY(-2px);
+        }
+
+        /* Заголовки секций */
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 50px;
+            letter-spacing: -0.5px;
+        }
+
+        /* Блок преимуществ */
+        .services {
+            padding: 80px 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background-color: #111622;
+            padding: 40px 32px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .service-card .icon {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .service-card p {
+            color: #9ca3af;
+            font-size: 15px;
+        }
+
+        /* Портфолио */
+        .portfolio {
+            padding: 80px 0;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+            gap: 32px;
+        }
+
+        .portfolio-item {
+            background-color: #111622;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: border-color 0.2s ease;
+        }
+
+        .portfolio-item:hover {
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1; 
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: #000;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .item-info {
+            padding: 24px;
+        }
+
+        .item-info h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .item-info p {
+            color: #9ca3af;
+            font-size: 15px;
+        }
+
+        /* Контакты / Футер */
+        .footer {
+            padding: 100px 0 40px 0;
+            text-align: center;
+            background: linear-gradient(to top, rgba(99, 102, 241, 0.05) 0%, transparent 100%);
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .footer h2 {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .footer p {
+            color: #9ca3af;
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background-color: #111622;
+            padding: 16px 28px;
+            border-radius: 10px;
+            border: 1px solid #1f2937;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .contact-card.discord {
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 16px;
+        }
+
+        .contact-card.discord:hover {
+            border-color: #5865F2;
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.2);
+        }
+
+        .contact-card.email:hover {
+            border-color: #24A1DE; /* Фирменный цвет Telegram */
+            box-shadow: 0 4px 15px rgba(36, 161, 222, 0.2);
+        }
+
+        .copyright {
+            font-size: 14px !important;
+            color: #4b5563 !important;
+            margin-top: 40px;
+        }
+
+        /* Адаптивность для мобилок */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Скрываем меню для простоты */
+            .hero h1 { font-size: 38px; }
+            .hero p { font-size: 16px; }
+            .hero-buttons { flex-direction: column; gap: 12px; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .contact-links { flex-direction: column; align-items: center; }
+            .contact-card { width: 100%; max-width: 300px; justify-content: center; }
+            .footer h2 { font-size: 28px; }
+        }
+
+        /* Аудио портфолио */
+        .audio-portfolio {
+            padding: 80px 0;
+            background: transparent;
+        }
+
+        .audio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .audio-card {
+            background-color: #111622;
+            padding: 30px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .audio-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .audio-genre {
+            display: inline-block;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #818cf8;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .audio-card h3 {
+            font-size: 18px;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .audio-card audio {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 480px) {
+            .audio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .tools {
+            padding: 80px 0;
+            background: transparent;
+            text-align: center;
+        }
+
+        .tools-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 30px;
+        }
+
+        .tool-item {
+            background: #111622;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.2s ease;
+        }
+
+        .tool-item:hover {
+            border-color: #818cf8;
+            transform: scale(1.05);
+        }
+
+        .faq {
+            padding: 80px 0;
+            background: transparent;
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .faq-item {
+            background: #111622;
+            padding: 24px;
+            border-radius: 12px;
+            border-left: 4px solid #818cf8;
+        }
+
+        .faq-item h4 {
+            color: #ffffff;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .faq-item p {
+            color: #94a3b8;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Переключатель языков: Управление видимостью */
+        body.lang-en .ru {
+            display: none !important;
+        }
+        body.lang-en .en {
+            display: inline;
+        }
+
+        body.lang-ru .en {
+            display: none !important;
+        }
+        body.lang-ru .ru {
+            display: inline;
+        }
+
+        /* Изменяем отображение для блочных элементов, чтобы верстка не ехала */
+        body.lang-en p.en, body.lang-en span.en, body.lang-en div.en { display: block; }
+        body.lang-ru p.ru, body.lang-ru span.ru, body.lang-ru div.ru { display: block; }
+
+        /* Стиль для кнопки переключения в навигации */
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            padding: 6px 14px;
+            font-size: 13px;
+            font-weight: 700;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-left: 8px;
+        }
+
+        .lang-btn:hover {
+            background: #6366f1;
+            border-color: #6366f1;
+            box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
+        }
+    </style>
 </head>
 <body class="lang-en">
 
@@ -298,11 +810,13 @@
             </p>
             
             <div class="contact-links">
-                <a href="https://discord.com/users/1512194212224041271" target="_blank" class="contact-card discord">
+                <!-- Интерактивная кнопка Discord с никнеймом Роб и копированием его ID в буфер -->
+                <button onclick="copyDiscord()" class="contact-card discord">
                     <span class="contact-icon">💬</span>
-                    <span>Discord</span>
-                </a>
+                    <span id="discord-text">Discord: Роб</span>
+                </button>
                 
+                <!-- Кнопка Telegram с правильным никнеймом -->
                 <a href="https://t.me/arturiapendragon2" target="_blank" class="contact-card email">
                     <span class="contact-icon">✈️</span>
                     <span>Telegram</span>
@@ -313,11 +827,12 @@
         </div>
     </footer>
 
-    <!-- Скрипт переключения языка -->
+    <!-- Логика и скрипты сайта -->
     <script>
         const langBtn = document.getElementById('lang-btn');
         const body = document.body;
 
+        // Переключение языков
         langBtn.addEventListener('click', () => {
             if (body.classList.contains('lang-en')) {
                 body.classList.remove('lang-en');
@@ -329,6 +844,26 @@
                 langBtn.textContent = 'RU';
             }
         });
+
+        // Функция копирования Discord ID в буфер
+        function copyDiscord() {
+            const discordId = "1512194212224041271"; 
+            
+            navigator.clipboard.writeText(discordId).then(() => {
+                const btnText = document.getElementById('discord-text');
+                const originalText = btnText.textContent;
+                
+                // Меняем текст на кнопке в зависимости от выбранного на сайте языка
+                btnText.textContent = body.classList.contains('lang-ru') ? 'ID скопирован!' : 'ID Copied!';
+                
+                // Возвращаем исходный текст через 2 секунды
+                setTimeout(() => {
+                    btnText.textContent = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Ошибка копирования: ', err);
+            });
+        }
     </script>
 
 </body>
