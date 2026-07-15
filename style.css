@@ -1,492 +1,869 @@
-/* Общие настройки и сброс */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
-body {
-    background-color: #080b11;
-    color: #f3f4f6;
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-}
-
-/* Навигационная панель */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(8, 11, 17, 0.85);
-    backdrop-filter: blur(12px);
-    z-index: 1000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 70px;
-}
-
-.logo {
-    font-weight: 800;
-    font-size: 20px;
-    color: #ffffff;
-    text-decoration: none;
-    letter-spacing: 1px;
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-}
-
-.nav-links a {
-    color: #9ca3af;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 600;
-    transition: color 0.2s ease;
-}
-
-.nav-links a:hover {
-    color: #ffffff;
-}
-
-.nav-links .nav-btn {
-    background-color: #6366f1;
-    color: white;
-    padding: 8px 18px;
-    border-radius: 6px;
-}
-
-.nav-links .nav-btn:hover {
-    background-color: #4f46e5;
-}
-
-/* Главный блок (Hero) */
-.hero {
-    padding: 180px 0 100px 0;
-    text-align: center;
-    background: radial-gradient(circle at top, rgba(99, 102, 241, 0.15) 0%, transparent 60%);
-}
-
-.badge {
-    background: rgba(99, 102, 241, 0.1);
-    color: #818cf8;
-    padding: 6px 16px;
-    border-radius: 30px;
-    font-size: 14px;
-    font-weight: 600;
-    border: 1px solid rgba(99, 102, 241, 0.2);
-    display: inline-block;
-    margin-bottom: 24px;
-}
-
-.hero h1 {
-    font-size: 58px;
-    font-weight: 800;
-    letter-spacing: -1.5px;
-    line-height: 1.1;
-    margin-bottom: 24px;
-}
-
-.highlight {
-    color: #6366f1;
-    background: linear-gradient(to right, #818cf8, #6366f1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.subtitle {
-    font-size: 20px;
-    color: #9ca3af;
-    max-width: 760px;
-    margin: 0 auto 40px auto;
-}
-
-.hero-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 14px 32px;
-    border-radius: 8px;
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 16px;
-    transition: all 0.2s ease;
-}
-
-.btn.primary {
-    background-color: #6366f1;
-    color: white;
-    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
-}
-
-.btn.primary:hover {
-    background-color: #4f46e5;
-    transform: translateY(-2px);
-}
-
-.btn.secondary {
-    background-color: #111827;
-    color: #f3f4f6;
-    border: 1px solid #1f2937;
-}
-
-.btn.secondary:hover {
-    background-color: #1f2937;
-    transform: translateY(-2px);
-}
-
-/* Заголовки секций */
-.section-title {
-    font-size: 36px;
-    font-weight: 800;
-    text-align: center;
-    margin-bottom: 50px;
-    letter-spacing: -0.5px;
-}
-
-/* Блок преимуществ */
-.services {
-    padding: 80px 0;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
-}
-
-.service-card {
-    background-color: #111622;
-    padding: 40px 32px;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.03);
-    transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(99, 102, 241, 0.3);
-}
-
-.service-card .icon {
-    font-size: 32px;
-    margin-bottom: 20px;
-}
-
-.service-card h3 {
-    font-size: 20px;
-    margin-bottom: 12px;
-    color: #ffffff;
-}
-
-.service-card p {
-    color: #9ca3af;
-    font-size: 15px;
-}
-
-/* Портфолио */
-.portfolio {
-    padding: 80px 0;
-}
-
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
-    gap: 32px;
-}
-
-.portfolio-item {
-    background-color: #111622;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.03);
-    transition: border-color 0.2s ease;
-}
-
-.portfolio-item:hover {
-    border-color: rgba(99, 102, 241, 0.3);
-}
-
-.video-wrapper {
-    position: relative;
-    width: 100%;
-    /* Задаем идеальный квадратный формат 1:1 */
-    aspect-ratio: 1 / 1; 
-    border-radius: 12px;
-    overflow: hidden;
-    background-color: #000;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
-
-.item-info {
-    padding: 24px;
-}
-
-.item-info h3 {
-    font-size: 22px;
-    margin-bottom: 10px;
-    color: #ffffff;
-}
-
-.item-info p {
-    color: #9ca3af;
-    font-size: 15px;
-}
-
-/* Контакты / Футер */
-.footer {
-    padding: 100px 0 40px 0;
-    text-align: center;
-    background: linear-gradient(to top, rgba(99, 102, 241, 0.05) 0%, transparent 100%);
-    border-top: 1px solid rgba(255, 255, 255, 0.03);
-}
-
-.footer h2 {
-    font-size: 40px;
-    font-weight: 800;
-    margin-bottom: 16px;
-}
-
-.footer p {
-    color: #9ca3af;
-    font-size: 18px;
-    margin-bottom: 40px;
-}
-
-.contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 60px;
-}
-
-.contact-card {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background-color: #111622;
-    padding: 16px 28px;
-    border-radius: 10px;
-    border: 1px solid #1f2937;
-    text-decoration: none;
-    color: white;
-    font-weight: 600;
-    transition: all 0.2s ease;
-}
-
-.contact-card:hover {
-    transform: translateY(-2px);
-}
-
-.contact-card.discord:hover {
-    border-color: #5865F2;
-    box-shadow: 0 4px 15px rgba(88, 101, 242, 0.2);
-}
-
-.contact-card.email:hover {
-    border-color: #6366f1;
-    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
-}
-
-.copyright {
-    font-size: 14px !important;
-    color: #4b5563 !important;
-    margin-top: 40px;
-}
-
-/* Адаптивность для мобилок */
-@media (max-width: 768px) {
-    .nav-links { display: none; } /* Скрываем меню для простоты */
-    .hero h1 { font-size: 38px; }
-    .hero p { font-size: 16px; }
-    .hero-buttons { flex-direction: column; gap: 12px; }
-    .portfolio-grid { grid-template-columns: 1fr; }
-    .contact-links { flex-direction: column; align-items: center; }
-    .contact-card { width: 100%; max-width: 300px; justify-content: center; }
-    .footer h2 { font-size: 28px; }
-}
-
-/* Аудио портфолио */
-.audio-portfolio {
-    padding: 80px 0;
-    background: transparent; /* Убрали цветную подложку */
-}
-
-.audio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 24px;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.audio-card {
-    background-color: #111622;
-    padding: 30px;
-    border-radius: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.03);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.audio-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(99, 102, 241, 0.3);
-}
-
-.audio-genre {
-    display: inline-block;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #818cf8;
-    margin-bottom: 6px;
-    font-weight: 600;
-}
-
-.audio-card h3 {
-    font-size: 18px;
-    color: #ffffff;
-    font-weight: 700;
-}
-
-.audio-card audio {
-    width: 100%;
-    border-radius: 8px;
-}
-
-/* Адаптивность для мобильных устройств */
-@media (max-width: 480px) {
-    .audio-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-.tools {
-    padding: 80px 0;
-    background: transparent; /* Убрали цветную подложку */
-    text-align: center;
-}
-
-.tools-grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-top: 30px;
-}
-
-.tool-item {
-    background: #111622;
-    padding: 14px 28px;
-    border-radius: 30px;
-    font-weight: 600;
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.2s ease;
-}
-
-.tool-item:hover {
-    border-color: #818cf8;
-    transform: scale(1.05);
-}
-
-.faq {
-    padding: 80px 0;
-    background: transparent; /* Убрали цветную подложку */
-}
-
-.faq-list {
-    max-width: 800px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-
-.faq-item {
-    background: #111622;
-    padding: 24px;
-    border-radius: 12px;
-    border-left: 4px solid #818cf8;
-}
-
-.faq-item h4 {
-    color: #ffffff;
-    font-size: 18px;
-    margin-bottom: 8px;
-}
-
-.faq-item p {
-    color: #94a3b8;
-    font-size: 15px;
-    line-height: 1.6;
-}
-/* Переключатель языков: Управление видимостью */
-body.lang-en .ru {
-    display: none !important;
-}
-body.lang-en .en {
-    display: inline;
-}
-
-body.lang-ru .en {
-    display: none !important;
-}
-body.lang-ru .ru {
-    display: inline;
-}
-
-/* Изменяем отображение для блочных элементов, чтобы верстка не ехала */
-body.lang-en p.en, body.lang-en span.en, body.lang-en div.en { display: block; }
-body.lang-ru p.ru, body.lang-ru span.ru, body.lang-ru div.ru { display: block; }
-
-/* Стиль для кнопки переключения в навигации */
-.lang-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    padding: 6px 14px;
-    font-size: 13px;
-    font-weight: 700;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    margin-left: 8px;
-}
-
-.lang-btn:hover {
-    background: #6366f1;
-    border-color: #6366f1;
-    box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Video Editor & Voice Actor</title>
+    
+    <!-- Настройки для красивого превью в Telegram, Discord и соцсетях (Open Graph) -->
+    <meta property="og:title" content="Portfolio | Video Editor & Voice Actor">
+    <meta property="og:description" content="Professional video editing, voiceover, and localization (EN/RU/LV) to help your content scale.">
+    <meta property="og:image" content="https://твой-сайт.com/preview.jpg"> <!-- Замени на адрес своего превью, когда зальешь на хостинг -->
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Иконка вкладки (Favicon) из эмодзи хлопушки -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Все CSS стили проекта объединены здесь -->
+    <style>
+        /* Общие настройки и сброс */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #080b11;
+            color: #f3f4f6;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Навигационная панель */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(8, 11, 17, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 20px;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .nav-links .nav-btn {
+            background-color: #6366f1;
+            color: white;
+            padding: 8px 18px;
+            border-radius: 6px;
+        }
+
+        .nav-links .nav-btn:hover {
+            background-color: #4f46e5;
+        }
+
+        /* Главный блок (Hero) */
+        .hero {
+            padding: 180px 0 100px 0;
+            text-align: center;
+            background: radial-gradient(circle at top, rgba(99, 102, 241, 0.15) 0%, transparent 60%);
+        }
+
+        .badge {
+            background: rgba(99, 102, 241, 0.1);
+            color: #818cf8;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            display: inline-block;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .highlight {
+            color: #6366f1;
+            background: linear-gradient(to right, #818cf8, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #9ca3af;
+            max-width: 760px;
+            margin: 0 auto 40px auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.2s ease;
+        }
+
+        .btn.primary {
+            background-color: #6366f1;
+            color: white;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn.primary:hover {
+            background-color: #4f46e5;
+            transform: translateY(-2px);
+        }
+
+        .btn.secondary {
+            background-color: #111827;
+            color: #f3f4f6;
+            border: 1px solid #1f2937;
+        }
+
+        .btn.secondary:hover {
+            background-color: #1f2937;
+            transform: translateY(-2px);
+        }
+
+        /* Заголовки секций */
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 50px;
+            letter-spacing: -0.5px;
+        }
+
+        /* Блок преимуществ */
+        .services {
+            padding: 80px 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background-color: #111622;
+            padding: 40px 32px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .service-card .icon {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .service-card p {
+            color: #9ca3af;
+            font-size: 15px;
+        }
+
+        /* Портфолио */
+        .portfolio {
+            padding: 80px 0;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+            gap: 32px;
+        }
+
+        .portfolio-item {
+            background-color: #111622;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: border-color 0.2s ease;
+        }
+
+        .portfolio-item:hover {
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1; 
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: #000;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .item-info {
+            padding: 24px;
+        }
+
+        .item-info h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .item-info p {
+            color: #9ca3af;
+            font-size: 15px;
+        }
+
+        /* Контакты / Футер */
+        .footer {
+            padding: 100px 0 40px 0;
+            text-align: center;
+            background: linear-gradient(to top, rgba(99, 102, 241, 0.05) 0%, transparent 100%);
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .footer h2 {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .footer p {
+            color: #9ca3af;
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background-color: #111622;
+            padding: 16px 28px;
+            border-radius: 10px;
+            border: 1px solid #1f2937;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .contact-card.discord {
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 16px;
+        }
+
+        .contact-card.discord:hover {
+            border-color: #5865F2;
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.2);
+        }
+
+        .contact-card.email:hover {
+            border-color: #6366f1;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
+        }
+
+        .copyright {
+            font-size: 14px !important;
+            color: #4b5563 !important;
+            margin-top: 40px;
+        }
+
+        /* Адаптивность для мобилок */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Скрываем меню для простоты */
+            .hero h1 { font-size: 38px; }
+            .hero p { font-size: 16px; }
+            .hero-buttons { flex-direction: column; gap: 12px; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .contact-links { flex-direction: column; align-items: center; }
+            .contact-card { width: 100%; max-width: 300px; justify-content: center; }
+            .footer h2 { font-size: 28px; }
+        }
+
+        /* Аудио портфолио */
+        .audio-portfolio {
+            padding: 80px 0;
+            background: transparent;
+        }
+
+        .audio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .audio-card {
+            background-color: #111622;
+            padding: 30px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .audio-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .audio-genre {
+            display: inline-block;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #818cf8;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .audio-card h3 {
+            font-size: 18px;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .audio-card audio {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 480px) {
+            .audio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .tools {
+            padding: 80px 0;
+            background: transparent;
+            text-align: center;
+        }
+
+        .tools-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 30px;
+        }
+
+        .tool-item {
+            background: #111622;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.2s ease;
+        }
+
+        .tool-item:hover {
+            border-color: #818cf8;
+            transform: scale(1.05);
+        }
+
+        .faq {
+            padding: 80px 0;
+            background: transparent;
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .faq-item {
+            background: #111622;
+            padding: 24px;
+            border-radius: 12px;
+            border-left: 4px solid #818cf8;
+        }
+
+        .faq-item h4 {
+            color: #ffffff;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .faq-item p {
+            color: #94a3b8;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Переключатель языков: Управление видимостью */
+        body.lang-en .ru {
+            display: none !important;
+        }
+        body.lang-en .en {
+            display: inline;
+        }
+
+        body.lang-ru .en {
+            display: none !important;
+        }
+        body.lang-ru .ru {
+            display: inline;
+        }
+
+        /* Изменяем отображение для блочных элементов, чтобы верстка не ехала */
+        body.lang-en p.en, body.lang-en span.en, body.lang-en div.en { display: block; }
+        body.lang-ru p.ru, body.lang-ru span.ru, body.lang-ru div.ru { display: block; }
+
+        /* Стиль для кнопки переключения в навигации */
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            padding: 6px 14px;
+            font-size: 13px;
+            font-weight: 700;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-left: 8px;
+        }
+
+        .lang-btn:hover {
+            background: #6366f1;
+            border-color: #6366f1;
+            box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
+        }
+    </style>
+</head>
+<body class="lang-en">
+
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">PORTFOLIO</a>
+            <div class="nav-links">
+                <a href="#services">
+                    <span class="en">What I Do</span>
+                    <span class="ru">Услуги</span>
+                </a>
+                <a href="#portfolio">
+                    <span class="en">My Work</span>
+                    <span class="ru">Портфолио</span>
+                </a>
+                <a href="#contact" class="nav-btn">
+                    <span class="en">Contact Me</span>
+                    <span class="ru">Контакты</span>
+                </a>
+                <!-- Кнопка переключения языков -->
+                <button id="lang-btn" class="lang-btn">RU</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Главный экран (Hero) -->
+    <header class="hero">
+        <div class="container">
+            <span class="badge">
+                <span class="en">🔥 Available for Freelance & Projects</span>
+                <span class="ru">🔥 Доступен для фриланса и проектов</span>
+            </span>
+            <h1>
+                <span class="en">Hi, I'm a <span class="highlight">Video Creator</span> & Voice Artist</span>
+                <span class="ru">Привет, я <span class="highlight">создатель видео</span> и диктор</span>
+            </h1>
+            <p class="subtitle">
+                <span class="en">I help content creators and brands expand globally. I handle the entire production pipeline: accurate translation, professional voiceover, and dynamic editing.</span>
+                <span class="ru">Я помогаю авторам и брендам развиваться на международном рынке. Беру на себя весь процесс: точный перевод, профессиональную озвучку и динамичный монтаж.</span>
+            </p>
+            <div class="hero-buttons">
+                <a href="#portfolio" class="btn primary">
+                    <span class="en">View My Work</span>
+                    <span class="ru">Мои работы</span>
+                </a>
+                <a href="#contact" class="btn secondary">
+                    <span class="en">Get in Touch</span>
+                    <span class="ru">Связаться</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Спектр услуг -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="en">What I Can Offer</span>
+                <span class="ru">Что я могу предложить</span>
+            </h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon">🎤</div>
+                    <h3>
+                        <span class="en">Voiceover</span>
+                        <span class="ru">Озвучка</span>
+                    </h3>
+                    <p>
+                        <span class="en">Professional multi-tone voice acting and audio mastering. I deliver clean, high-quality audio tracks tailored to your content's mood and audience.</span>
+                        <span class="ru">Профессиональная многоголосая озвучка и мастеринг звука. Записываю чистые, качественные аудиодорожки под любое настроение и формат вашего видео.</span>
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">🎬</div>
+                    <h3>
+                        <span class="en">Video Editing</span>
+                        <span class="ru">Монтаж видео</span>
+                    </h3>
+                    <p>
+                        <span class="en">Dynamic visual pacing, high-retention cuts, custom animated subtitles, and sound design (SFX) that keep viewers engaged from start to finish.</span>
+                        <span class="ru">Динамичный темп, удержание внимания аудитории, кастомные анимированные субтитры и детальный саунд-дизайн (SFX) для максимального вовлечения.</span>
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">🌍</div>
+                    <h3>
+                        <span class="en">Translating</span>
+                        <span class="ru">Перевод</span>
+                    </h3>
+                    <p>
+                        <span class="en">Accurate script translation and localization (English to Russian/Latvian). I don't just translate words; I adapt the context for global markets.</span>
+                        <span class="ru">Точный перевод и локализация сценариев (с английского на русский/латышский). Не просто перевожу слова, а адаптирую шутки и контекст для вашей аудитории.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Портфолио (Видео) -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="en">Featured Work</span>
+                <span class="ru">Примеры работ</span>
+            </h2>
+            
+            <div class="portfolio-grid">
+                <!-- Кейс 1: Озвучка и Перевод -->
+                <div class="portfolio-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/ADA-zOiG2OQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="item-info">
+                        <h3>
+                            <span class="en">Voiceover & Script Adaptation</span>
+                            <span class="ru">Озвучка и адаптация сценария</span>
+                        </h3>
+                        <p>
+                            <span class="en">Complete localization of complex educational/philosophy content. Tasks included script translation, multi-tone voice acting, and audio mastering.</span>
+                            <span class="ru">Полная локализация сложного научно-популярного контента. Перевод текста, озвучка в нужном тоне и финальное сведение звука.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Кейс 2: Монтаж / Эдиты -->
+                <div class="portfolio-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/Xq3ZbcnJhwY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="item-info">
+                        <h3>
+                            <span class="en">Dynamic Video Editing & Gaming Edits</span>
+                            <span class="ru">Динамичный монтаж и игровые эдиты</span>
+                        </h3>
+                        <p>
+                            <span class="en">High-energy visual pacing designed for high retention. Features custom animated subtitles, tailored sound design (SFX), and seamless rhythm cuts.</span>
+                            <span class="ru">Высокая динамика видео для отличного удержания зрителя. Кастомный стиль субтитров, проработка звуковых эффектов (SFX) и монтаж под ритм.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Аудио Портфолио (Voice Samples) -->
+    <section id="audio-portfolio" class="audio-portfolio">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="en">Voice Acting Samples</span>
+                <span class="ru">Демо озвучки</span>
+            </h2>
+            <div class="audio-grid">
+                
+                <!-- Аудио 1 -->
+                <div class="audio-card">
+                    <div class="audio-info">
+                        <span class="audio-genre">
+                            <span class="en">Educational / Philosophy</span>
+                            <span class="ru">Научпоп / Философия</span>
+                        </span>
+                        <h3>
+                            <span class="en">Deep & Calm Narrative Tone</span>
+                            <span class="ru">Глубокий и спокойный тон повествования</span>
+                        </h3>
+                    </div>
+                    <audio controls src="voice1.mp3"></audio>
+                </div>
+
+                <!-- Аудио 2 -->
+                <div class="audio-card">
+                    <div class="audio-info">
+                        <span class="audio-genre">
+                            <span class="en">Gaming / High-Energy</span>
+                            <span class="ru">Игровой / Энергичный</span>
+                        </span>
+                        <h3>
+                            <span class="en">Dynamic & Expressive Acting</span>
+                            <span class="ru">Динамичная и экспрессивная подача</span>
+                        </h3>
+                    </div>
+                    <audio controls src="voice2.mp3"></audio>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция инструментов (Apps I Use for Work) -->
+    <section class="tools">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="en">Apps I Use for Work</span>
+                <span class="ru">Программы для работы</span>
+            </h2>
+            <div class="tools-grid">
+                <div class="tool-item">Adobe Premiere Pro</div>
+                <div class="tool-item">Adobe After Effects</div>
+                <div class="tool-item">Adobe Audition</div>
+                <div class="tool-item">Adobe Photoshop</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Секция -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="en">Frequently Asked Questions</span>
+                <span class="ru">Часто задаваемые вопросы</span>
+            </h2>
+            <div class="faq-list">
+                
+                <!-- Вопрос 1 -->
+                <div class="faq-item">
+                    <h4>
+                        <span class="en">How much do you charge?</span>
+                        <span class="ru">Сколько стоят твои услуги?</span>
+                    </h4>
+                    <p>
+                        <span class="en">My rates start at <strong>$5</strong> (for example, for a simple short-form video edit or a short voiceover sample). Since every video is unique, the final price depends on the complexity, length, and requirements of your project. Drop me a message with your idea, and we can easily discuss a fair price that fits your budget!</span>
+                        <span class="ru">Мои расценки начинаются от <strong>$5</strong> (например, за простой монтаж короткого ролика или короткое демо озвучки). Так как каждый проект уникален, финальная стоимость зависит от сложности работы, хронометража и требований. Напиши мне свою идею, и мы легко договоримся о цене под твой бюджет!</span>
+                    </p>
+                </div>
+
+                <!-- Вопрос 2 -->
+                <div class="faq-item">
+                    <h4>
+                        <span class="en">What payment methods do you accept?</span>
+                        <span class="ru">Какие способы оплаты ты принимаешь?</span>
+                    </h4>
+                    <p>
+                        <span class="en">I accept <strong>direct Bank Transfers (SEPA)</strong>, which is the easiest option for EU clients. For international projects, I also accept <strong>PayPal</strong> and <strong>Cryptocurrency (USDT - TRC20)</strong>. We can use whichever option works best for you!</span>
+                        <span class="ru">Я принимаю <strong>прямые банковские переводы (SEPA)</strong> (самый удобный вариант для клиентов из ЕС). Для международных заказов я также принимаю <strong>PayPal</strong> и <strong>криптовалюту (USDT - TRC20)</strong>. Выберем то, что удобнее для тебя!</span>
+                    </p>
+                </div>
+
+                <!-- Вопрос 3 -->
+                <div class="faq-item">
+                    <h4>
+                        <span class="en">What languages do you support?</span>
+                        <span class="ru">Какие языки ты поддерживаешь?</span>
+                    </h4>
+                    <p>
+                        <span class="en">I specialize in English, Russian, and Latvian translation and localization.</span>
+                        <span class="ru">Я специализируюсь на переводе и локализации между английским, русским и латышским языками.</span>
+                    </p>
+                </div>
+                
+                <!-- Вопрос 4 -->
+                <div class="faq-item">
+                    <h4>
+                        <span class="en">How long does it take for project to be done?</span>
+                        <span class="ru">Сколько времени занимает выполнение работы?</span>
+                    </h4>
+                    <p>
+                        <span class="en">It depends on the complexity, but usually about 6-18 hours.</span>
+                        <span class="ru">Всё зависит от сложности, но обычно готовый проект сдается в течение 6-18 часов.</span>
+                    </p>
+                </div>
+                
+                <!-- Вопрос 5 -->
+                <div class="faq-item">
+                    <h4>
+                        <span class="en">Can you adapt scripts or do you only translate word-for-word?</span>
+                        <span class="ru">Ты адаптируешь сценарии или просто переводишь слово в слово?</span>
+                    </h4>
+                    <p>
+                        <span class="en">I do full localization—adapting jokes, idioms, and cultural context so the video feels native to the target audience.</span>
+                        <span class="ru">Я делаю полную локализацию: адаптирую шутки, идиомы и культурный контекст, чтобы видео воспринималось живым и естественным для целевой аудитории.</span>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты (Footer) -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <h2>
+                <span class="en">Let's build something great together.</span>
+                <span class="ru">Давай сделаем крутой проект вместе.</span>
+            </h2>
+            <p>
+                <span class="en">Ready to scale your content? Hit me up on Discord or via Telegram.</span>
+                <span class="ru">Готов развивать свой контент? Напиши мне в Discord или Telegram.</span>
+            </p>
+            
+            <div class="contact-links">
+                <!-- Интерактивная кнопка Discord с копированием в буфер -->
+                <button onclick="copyDiscord()" class="contact-card discord">
+                    <span class="contact-icon">💬</span>
+                    <span id="discord-text">Discord</span>
+                </button>
+                
+                <a href="https://t.me/arturiapendragon2" target="_blank" class="contact-card email">
+                    <span class="contact-icon">✈️</span>
+                    <span>Telegram</span>
+                </a>
+            </div>
+            
+            <p class="copyright">&copy; 2026. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Логика и скрипты сайта -->
+    <script>
+        const langBtn = document.getElementById('lang-btn');
+        const body = document.body;
+
+        // Переключение языков
+        langBtn.addEventListener('click', () => {
+            if (body.classList.contains('lang-en')) {
+                body.classList.remove('lang-en');
+                body.classList.add('lang-ru');
+                langBtn.textContent = 'EN';
+            } else {
+                body.classList.remove('lang-ru');
+                body.classList.add('lang-en');
+                langBtn.textContent = 'RU';
+            }
+        });
+
+        // Функция копирования Discord-тега в буфер
+        function copyDiscord() {
+            const discordTag = "arturiapendragon2"; 
+            
+            navigator.clipboard.writeText(discordTag).then(() => {
+                const btnText = document.getElementById('discord-text');
+                const originalText = btnText.textContent;
+                
+                // Меняем текст на кнопке в зависимости от выбранного на сайте языка
+                btnText.textContent = body.classList.contains('lang-ru') ? 'Скопировано!' : 'Copied!';
+                
+                // Возвращаем исходный текст через 2 секунды
+                setTimeout(() => {
+                    btnText.textContent = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Ошибка копирования: ', err);
+            });
+        }
+    </script>
+
+</body>
+</html>
