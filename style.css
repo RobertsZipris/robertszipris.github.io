@@ -390,3 +390,28 @@ body {
         grid-template-columns: 1fr;
     }
 }
+.tools {
+    padding: 80px 0;
+    background: #070a13;
+    text-align: center;
+}
+.tools-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 30px;
+}
+.tool-item {
+    background: #111622;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.2s ease;
+}
+.tool-item:hover {
+    border-color: #818cf8;
+    transform: scale(1.05);
+}
