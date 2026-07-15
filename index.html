@@ -9,16 +9,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="lang-en">
 
     <!-- Навигация -->
     <nav class="navbar">
         <div class="container nav-container">
             <a href="#" class="logo">PORTFOLIO</a>
             <div class="nav-links">
-                <a href="#services">What I Do</a>
-                <a href="#portfolio">My Work</a>
-                <a href="#contact" class="nav-btn">Contact Me</a>
+                <a href="#services">
+                    <span class="en">What I Do</span>
+                    <span class="ru">Услуги</span>
+                </a>
+                <a href="#portfolio">
+                    <span class="en">My Work</span>
+                    <span class="ru">Портфолио</span>
+                </a>
+                <a href="#contact" class="nav-btn">
+                    <span class="en">Contact Me</span>
+                    <span class="ru">Контакты</span>
+                </a>
+                <!-- Кнопка переключения языков -->
+                <button id="lang-btn" class="lang-btn">RU</button>
             </div>
         </div>
     </nav>
@@ -26,12 +37,27 @@
     <!-- Главный экран (Hero) -->
     <header class="hero">
         <div class="container">
-            <span class="badge">🔥 Available for Freelance & Projects</span>
-            <h1>Hi, I'm a <span class="highlight">Video Creator</span> & Voice Artist</h1>
-            <p class="subtitle">I help content creators and brands expand globally. I handle the entire production pipeline: accurate translation, professional voiceover, and dynamic editing.</p>
+            <span class="badge">
+                <span class="en">🔥 Available for Freelance & Projects</span>
+                <span class="ru">🔥 Доступен для фриланса и проектов</span>
+            </span>
+            <h1>
+                <span class="en">Hi, I'm a <span class="highlight">Video Creator</span> & Voice Artist</span>
+                <span class="ru">Привет, я <span class="highlight">создатель видео</span> и диктор</span>
+            </h1>
+            <p class="subtitle">
+                <span class="en">I help content creators and brands expand globally. I handle the entire production pipeline: accurate translation, professional voiceover, and dynamic editing.</span>
+                <span class="ru">Я помогаю авторам и брендам развиваться на международном рынке. Беру на себя весь процесс: точный перевод, профессиональную озвучку и динамичный монтаж.</span>
+            </p>
             <div class="hero-buttons">
-                <a href="#portfolio" class="btn primary">View My Work</a>
-                <a href="#contact" class="btn secondary">Get in Touch</a>
+                <a href="#portfolio" class="btn primary">
+                    <span class="en">View My Work</span>
+                    <span class="ru">Мои работы</span>
+                </a>
+                <a href="#contact" class="btn secondary">
+                    <span class="en">Get in Touch</span>
+                    <span class="ru">Связаться</span>
+                </a>
             </div>
         </div>
     </header>
@@ -39,22 +65,43 @@
     <!-- Спектр услуг -->
     <section id="services" class="services">
         <div class="container">
-            <h2 class="section-title">What I Can Offer</h2>
+            <h2 class="section-title">
+                <span class="en">What I Can Offer</span>
+                <span class="ru">Что я могу предложить</span>
+            </h2>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="icon">🎤</div>
-                    <h3>Voiceover</h3>
-                    <p>Professional multi-tone voice acting and audio mastering. I deliver clean, high-quality audio tracks tailored to your content's mood and audience.</p>
+                    <h3>
+                        <span class="en">Voiceover</span>
+                        <span class="ru">Озвучка</span>
+                    </h3>
+                    <p>
+                        <span class="en">Professional multi-tone voice acting and audio mastering. I deliver clean, high-quality audio tracks tailored to your content's mood and audience.</span>
+                        <span class="ru">Профессиональная многоголосая озвучка и мастеринг звука. Записываю чистые, качественные аудиодорожки под любое настроение и формат вашего видео.</span>
+                    </p>
                 </div>
                 <div class="service-card">
                     <div class="icon">🎬</div>
-                    <h3>Video Editing</h3>
-                    <p>Dynamic visual pacing, high-retention cuts, custom animated subtitles, and sound design (SFX) that keep viewers engaged from start to finish.</p>
+                    <h3>
+                        <span class="en">Video Editing</span>
+                        <span class="ru">Монтаж видео</span>
+                    </h3>
+                    <p>
+                        <span class="en">Dynamic visual pacing, high-retention cuts, custom animated subtitles, and sound design (SFX) that keep viewers engaged from start to finish.</span>
+                        <span class="ru">Динамичный темп, удержание внимания аудитории, кастомные анимированные субтитры и детальный саунд-дизайн (SFX) для максимального вовлечения.</span>
+                    </p>
                 </div>
                 <div class="service-card">
                     <div class="icon">🌍</div>
-                    <h3>Translating</h3>
-                    <p>Accurate script translation and localization (English to Russian/Latvian). I don't just translate words; I adapt the context for global markets.</p>
+                    <h3>
+                        <span class="en">Translating</span>
+                        <span class="ru">Перевод</span>
+                    </h3>
+                    <p>
+                        <span class="en">Accurate script translation and localization (English to Russian/Latvian). I don't just translate words; I adapt the context for global markets.</span>
+                        <span class="ru">Точный перевод и локализация сценариев (с английского на русский/латышский). Не просто перевожу слова, а адаптирую шутки и контекст для вашей аудитории.</span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -63,7 +110,10 @@
     <!-- Портфолио (Видео) -->
     <section id="portfolio" class="portfolio">
         <div class="container">
-            <h2 class="section-title">Featured Work</h2>
+            <h2 class="section-title">
+                <span class="en">Featured Work</span>
+                <span class="ru">Примеры работ</span>
+            </h2>
             
             <div class="portfolio-grid">
                 <!-- Кейс 1: Озвучка и Перевод -->
@@ -72,8 +122,14 @@
                         <iframe src="https://www.youtube.com/embed/ADA-zOiG2OQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="item-info">
-                        <h3>Voiceover & Script Adaptation</h3>
-                        <p>Complete localization of complex educational/philosophy content. Tasks included script translation, multi-tone voice acting, and audio mastering.</p>
+                        <h3>
+                            <span class="en">Voiceover & Script Adaptation</span>
+                            <span class="ru">Озвучка и адаптация сценария</span>
+                        </h3>
+                        <p>
+                            <span class="en">Complete localization of complex educational/philosophy content. Tasks included script translation, multi-tone voice acting, and audio mastering.</span>
+                            <span class="ru">Полная локализация сложного научно-популярного контента. Перевод текста, озвучка в нужном тоне и финальное сведение звука.</span>
+                        </p>
                     </div>
                 </div>
 
@@ -83,8 +139,14 @@
                         <iframe src="https://www.youtube.com/embed/Xq3ZbcnJhwY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="item-info">
-                        <h3>Dynamic Video Editing & Gaming Edits</h3>
-                        <p>High-energy visual pacing designed for high retention. Features custom animated subtitles, tailored sound design (SFX), and seamless rhythm cuts.</p>
+                        <h3>
+                            <span class="en">Dynamic Video Editing & Gaming Edits</span>
+                            <span class="ru">Динамичный монтаж и игровые эдиты</span>
+                        </h3>
+                        <p>
+                            <span class="en">High-energy visual pacing designed for high retention. Features custom animated subtitles, tailored sound design (SFX), and seamless rhythm cuts.</span>
+                            <span class="ru">Высокая динамика видео для отличного удержания зрителя. Кастомный стиль субтитров, проработка звуковых эффектов (SFX) и монтаж под ритм.</span>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -94,14 +156,23 @@
     <!-- Аудио Портфолио (Voice Samples) -->
     <section id="audio-portfolio" class="audio-portfolio">
         <div class="container">
-            <h2 class="section-title">Voice Acting Samples</h2>
+            <h2 class="section-title">
+                <span class="en">Voice Acting Samples</span>
+                <span class="ru">Демо озвучки</span>
+            </h2>
             <div class="audio-grid">
                 
                 <!-- Аудио 1 -->
                 <div class="audio-card">
                     <div class="audio-info">
-                        <span class="audio-genre">Educational / Philosophy</span>
-                        <h3>Deep & Calm Narrative Tone</h3>
+                        <span class="audio-genre">
+                            <span class="en">Educational / Philosophy</span>
+                            <span class="ru">Научпоп / Философия</span>
+                        </span>
+                        <h3>
+                            <span class="en">Deep & Calm Narrative Tone</span>
+                            <span class="ru">Глубокий и спокойный тон повествования</span>
+                        </h3>
                     </div>
                     <audio controls src="voice1.mp3"></audio>
                 </div>
@@ -109,8 +180,14 @@
                 <!-- Аудио 2 -->
                 <div class="audio-card">
                     <div class="audio-info">
-                        <span class="audio-genre">Gaming / High-Energy</span>
-                        <h3>Dynamic & Expressive Acting</h3>
+                        <span class="audio-genre">
+                            <span class="en">Gaming / High-Energy</span>
+                            <span class="ru">Игровой / Энергичный</span>
+                        </span>
+                        <h3>
+                            <span class="en">Dynamic & Expressive Acting</span>
+                            <span class="ru">Динамичная и экспрессивная подача</span>
+                        </h3>
                     </div>
                     <audio controls src="voice2.mp3"></audio>
                 </div>
@@ -119,10 +196,13 @@
         </div>
     </section>
 
-<!-- Секция инструментов (Apps I Use for Work) -->
+    <!-- Секция инструментов (Apps I Use for Work) -->
     <section class="tools">
         <div class="container">
-            <h2 class="section-title">Apps I Use for Work</h2>
+            <h2 class="section-title">
+                <span class="en">Apps I Use for Work</span>
+                <span class="ru">Программы для работы</span>
+            </h2>
             <div class="tools-grid">
                 <div class="tool-item">Adobe Premiere Pro</div>
                 <div class="tool-item">Adobe After Effects</div>
@@ -132,36 +212,73 @@
         </div>
     </section>
 
-<!-- FAQ Секция -->
+    <!-- FAQ Секция -->
     <section class="faq">
         <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
+            <h2 class="section-title">
+                <span class="en">Frequently Asked Questions</span>
+                <span class="ru">Часто задаваемые вопросы</span>
+            </h2>
             <div class="faq-list">
                 
+                <!-- Вопрос 1 -->
                 <div class="faq-item">
-                    <h4>How much do you charge?</h4>
-                    <p>My rates start at <strong>$5</strong> (for example, for a simple short-form video edit or a short voiceover sample). Since every video is unique, the final price depends on the complexity, length, and requirements of your project. Drop me a message with your idea, and we can easily discuss a fair price that fits your budget!</p>
+                    <h4>
+                        <span class="en">How much do you charge?</span>
+                        <span class="ru">Сколько стоят твои услуги?</span>
+                    </h4>
+                    <p>
+                        <span class="en">My rates start at <strong>$5</strong> (for example, for a simple short-form video edit or a short voiceover sample). Since every video is unique, the final price depends on the complexity, length, and requirements of your project. Drop me a message with your idea, and we can easily discuss a fair price that fits your budget!</span>
+                        <span class="ru">Мои расценки начинаются от <strong>$5</strong> (например, за простой монтаж короткого ролика или короткое демо озвучки). Так как каждый проект уникален, финальная стоимость зависит от сложности работы, хронометража и требований. Напиши мне свою идею, и мы легко договоримся о цене под твой бюджет!</span>
+                    </p>
                 </div>
 
-                <!-- НОВЫЙ ВОПРОС ПРО СПОСОБЫ ОПЛАТЫ -->
+                <!-- Вопрос 2 -->
                 <div class="faq-item">
-                    <h4>What payment methods do you accept?</h4>
-                    <p>I accept <strong>direct Bank Transfers (SEPA)</strong>, which is the easiest option for EU clients. For international projects, I also accept <strong>PayPal</strong> and <strong>Cryptocurrency (USDT - TRC20)</strong>. We can use whichever option works best for you!</p>
+                    <h4>
+                        <span class="en">What payment methods do you accept?</span>
+                        <span class="ru">Какие способы оплаты ты принимаешь?</span>
+                    </h4>
+                    <p>
+                        <span class="en">I accept <strong>direct Bank Transfers (SEPA)</strong>, which is the easiest option for EU clients. For international projects, I also accept <strong>PayPal</strong> and <strong>Cryptocurrency (USDT - TRC20)</strong>. We can use whichever option works best for you!</span>
+                        <span class="ru">Я принимаю <strong>прямые банковские переводы (SEPA)</strong> (самый удобный вариант для клиентов из ЕС). Для международных заказов я также принимаю <strong>PayPal</strong> и <strong>криптовалюту (USDT - TRC20)</strong>. Выберем то, что удобнее для тебя!</span>
+                    </p>
                 </div>
 
+                <!-- Вопрос 3 -->
                 <div class="faq-item">
-                    <h4>What languages do you support?</h4>
-                    <p>I specialize in English, Russian, and Latvian translation and localization.</p>
+                    <h4>
+                        <span class="en">What languages do you support?</span>
+                        <span class="ru">Какие языки ты поддерживаешь?</span>
+                    </h4>
+                    <p>
+                        <span class="en">I specialize in English, Russian, and Latvian translation and localization.</span>
+                        <span class="ru">Я специализируюсь на переводе и локализации между английским, русским и латышским языками.</span>
+                    </p>
                 </div>
                 
+                <!-- Вопрос 4 -->
                 <div class="faq-item">
-                    <h4>How long does it take for project to be done?</h4>
-                    <p>It depends on the complexity, but usually about 6-18hours.</p>
+                    <h4>
+                        <span class="en">How long does it take for project to be done?</span>
+                        <span class="ru">Сколько времени занимает выполнение работы?</span>
+                    </h4>
+                    <p>
+                        <span class="en">It depends on the complexity, but usually about 6-18 hours.</span>
+                        <span class="ru">Всё зависит от сложности, но обычно готовый проект сдается в течение 6-18 часов.</span>
+                    </p>
                 </div>
                 
+                <!-- Вопрос 5 -->
                 <div class="faq-item">
-                    <h4>Can you adapt scripts or do you only translate word-for-word?</h4>
-                    <p>I do full localization—adapting jokes, idioms, and cultural context so the video feels native to the target audience.</p>
+                    <h4>
+                        <span class="en">Can you adapt scripts or do you only translate word-for-word?</span>
+                        <span class="ru">Ты адаптируешь сценарии или просто переводишь слово в слово?</span>
+                    </h4>
+                    <p>
+                        <span class="en">I do full localization—adapting jokes, idioms, and cultural context so the video feels native to the target audience.</span>
+                        <span class="ru">Я делаю полную локализацию: адаптирую шутки, идиомы и культурный контекст, чтобы видео воспринималось живым и естественным для целевой аудитории.</span>
+                    </p>
                 </div>
 
             </div>
@@ -171,8 +288,14 @@
     <!-- Контакты (Footer) -->
     <footer id="contact" class="footer">
         <div class="container">
-            <h2>Let's build something great together.</h2>
-            <p>Ready to scale your content? Hit me up on Discord or via Telegram.</p>
+            <h2>
+                <span class="en">Let's build something great together.</span>
+                <span class="ru">Давай сделаем крутой проект вместе.</span>
+            </h2>
+            <p>
+                <span class="en">Ready to scale your content? Hit me up on Discord or via Telegram.</span>
+                <span class="ru">Готов развивать свой контент? Напиши мне в Discord или Telegram.</span>
+            </p>
             
             <div class="contact-links">
                 <a href="https://discord.com/users/1512194212224041271" target="_blank" class="contact-card discord">
@@ -189,6 +312,24 @@
             <p class="copyright">&copy; 2026. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Скрипт переключения языка -->
+    <script>
+        const langBtn = document.getElementById('lang-btn');
+        const body = document.body;
+
+        langBtn.addEventListener('click', () => {
+            if (body.classList.contains('lang-en')) {
+                body.classList.remove('lang-en');
+                body.classList.add('lang-ru');
+                langBtn.textContent = 'EN';
+            } else {
+                body.classList.remove('lang-ru');
+                body.classList.add('lang-en');
+                langBtn.textContent = 'RU';
+            }
+        });
+    </script>
 
 </body>
 </html>
