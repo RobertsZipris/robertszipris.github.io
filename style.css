@@ -306,12 +306,18 @@ body {
     transform: translateY(-2px);
 }
 
-.contact-card.discord:hover {
-    border-color: #5865F2;
-    box-shadow: 0 4px 15px rgba(88, 101, 242, 0.2);
+.contact-card.telegram:hover {
+    border-color: #229ED9;
+    box-shadow: 0 4px 15px rgba(34, 158, 217, 0.2);
 }
 
-.contact-card.email:hover {
+.contact-card.email-btn {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.contact-card.email-btn:hover {
     border-color: #6366f1;
     box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
 }
@@ -337,7 +343,7 @@ body {
 /* Аудио портфолио */
 .audio-portfolio {
     padding: 80px 0;
-    background: transparent; /* Убрали цветную подложку */
+    background: transparent;
 }
 
 .audio-grid {
@@ -394,7 +400,7 @@ body {
 
 .tools {
     padding: 80px 0;
-    background: transparent; /* Убрали цветную подложку */
+    background: transparent;
     text-align: center;
 }
 
@@ -423,7 +429,7 @@ body {
 
 .faq {
     padding: 80px 0;
-    background: transparent; /* Убрали цветную подложку */
+    background: transparent;
 }
 
 .faq-list {
@@ -452,6 +458,7 @@ body {
     font-size: 15px;
     line-height: 1.6;
 }
+
 /* Переключатель языков: Управление видимостью */
 body.lang-en .ru {
     display: none !important;
