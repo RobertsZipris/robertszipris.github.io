@@ -452,3 +452,41 @@ body {
     font-size: 15px;
     line-height: 1.6;
 }
+/* Переключатель языков: Управление видимостью */
+body.lang-en .ru {
+    display: none !important;
+}
+body.lang-en .en {
+    display: inline;
+}
+
+body.lang-ru .en {
+    display: none !important;
+}
+body.lang-ru .ru {
+    display: inline;
+}
+
+/* Изменяем отображение для блочных элементов, чтобы верстка не ехала */
+body.lang-en p.en, body.lang-en span.en, body.lang-en div.en { display: block; }
+body.lang-ru p.ru, body.lang-ru span.ru, body.lang-ru div.ru { display: block; }
+
+/* Стиль для кнопки переключения в навигации */
+.lang-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-left: 8px;
+}
+
+.lang-btn:hover {
+    background: #6366f1;
+    border-color: #6366f1;
+    box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
+}
