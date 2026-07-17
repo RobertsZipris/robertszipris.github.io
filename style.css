@@ -161,6 +161,7 @@ body {
     text-align: center;
     margin-bottom: 50px;
     letter-spacing: -0.5px;
+    width: 100%;
 }
 
 /* Блок преимуществ */
@@ -229,7 +230,6 @@ body {
 .video-wrapper {
     position: relative;
     width: 100%;
-    /* Задаем идеальный квадратный формат 1:1 */
     aspect-ratio: 1 / 1; 
     border-radius: 12px;
     overflow: hidden;
@@ -261,12 +261,131 @@ body {
     font-size: 15px;
 }
 
+/* Аудио портфолио */
+.audio-portfolio {
+    padding: 80px 0;
+    background: transparent;
+    width: 100%;
+}
+
+.audio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.audio-card {
+    background-color: #111622;
+    padding: 30px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.audio-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(99, 102, 241, 0.3);
+}
+
+.audio-genre {
+    display: inline-block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #818cf8;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.audio-card h3 {
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.audio-card audio {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* Программы (Tools) */
+.tools {
+    padding: 80px 0;
+    background: transparent;
+    text-align: center;
+    width: 100%;
+}
+
+.tools-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 30px;
+}
+
+.tool-item {
+    background: #111622;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.2s ease;
+}
+
+.tool-item:hover {
+    border-color: #818cf8;
+    transform: scale(1.05);
+}
+
+/* FAQ */
+.faq {
+    padding: 80px 0;
+    background: transparent;
+    width: 100%;
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.faq-item {
+    background: #111622;
+    padding: 24px;
+    border-radius: 12px;
+    border-left: 4px solid #818fall;
+    border-left-color: #818cf8;
+}
+
+.faq-item h4 {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.faq-item p {
+    color: #94a3b8;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
 /* Контакты / Футер */
 .footer {
     padding: 100px 0 40px 0;
     text-align: center;
     background: linear-gradient(to top, rgba(99, 102, 241, 0.05) 0%, transparent 100%);
     border-top: 1px solid rgba(255, 255, 255, 0.03);
+    width: 100%;
 }
 
 .footer h2 {
@@ -328,137 +447,6 @@ body {
     margin-top: 40px;
 }
 
-/* Адаптивность для мобилок */
-@media (max-width: 768px) {
-    .nav-links { display: none; } /* Скрываем меню для простоты */
-    .hero h1 { font-size: 38px; }
-    .hero p { font-size: 16px; }
-    .hero-buttons { flex-direction: column; gap: 12px; }
-    .portfolio-grid { grid-template-columns: 1fr; }
-    .contact-links { flex-direction: column; align-items: center; }
-    .contact-card { width: 100%; max-width: 300px; justify-content: center; }
-    .footer h2 { font-size: 28px; }
-}
-
-/* Аудио портфолио */
-.audio-portfolio {
-    padding: 80px 0;
-    background: transparent;
-}
-
-.audio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 24px;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.audio-card {
-    background-color: #111622;
-    padding: 30px;
-    border-radius: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.03);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.audio-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(99, 102, 241, 0.3);
-}
-
-.audio-genre {
-    display: inline-block;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #818cf8;
-    margin-bottom: 6px;
-    font-weight: 600;
-}
-
-.audio-card h3 {
-    font-size: 18px;
-    color: #ffffff;
-    font-weight: 700;
-}
-
-.audio-card audio {
-    width: 100%;
-    border-radius: 8px;
-}
-
-/* Адаптивность для мобильных устройств */
-@media (max-width: 480px) {
-    .audio-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-.tools {
-    padding: 80px 0;
-    background: transparent;
-    text-align: center;
-}
-
-.tools-grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-top: 30px;
-}
-
-.tool-item {
-    background: #111622;
-    padding: 14px 28px;
-    border-radius: 30px;
-    font-weight: 600;
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.2s ease;
-}
-
-.tool-item:hover {
-    border-color: #818cf8;
-    transform: scale(1.05);
-}
-
-.faq {
-    padding: 80px 0;
-    background: transparent;
-}
-
-.faq-list {
-    max-width: 800px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-
-.faq-item {
-    background: #111622;
-    padding: 24px;
-    border-radius: 12px;
-    border-left: 4px solid #818cf8;
-}
-
-.faq-item h4 {
-    color: #ffffff;
-    font-size: 18px;
-    margin-bottom: 8px;
-}
-
-.faq-item p {
-    color: #94a3b8;
-    font-size: 15px;
-    line-height: 1.6;
-}
-
 /* Переключатель языков: Управление видимостью */
 body.lang-en .ru {
     display: none !important;
@@ -474,9 +462,9 @@ body.lang-ru .ru {
     display: inline;
 }
 
-/* Изменяем отображение для блочных элементов, чтобы верстка не ехала */
-body.lang-en p.en, body.lang-en span.en, body.lang-en div.en { display: block; }
-body.lang-ru p.ru, body.lang-ru span.ru, body.lang-ru div.ru { display: block; }
+/* Исправленное отображение языковых блоков без влияния на общую структуру сетки */
+body.lang-en p.en, body.lang-en div.en { display: block; }
+body.lang-ru p.ru, body.lang-ru div.ru { display: block; }
 
 /* Стиль для кнопки переключения в навигации */
 .lang-btn {
@@ -496,4 +484,23 @@ body.lang-ru p.ru, body.lang-ru span.ru, body.lang-ru div.ru { display: block; }
     background: #6366f1;
     border-color: #6366f1;
     box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
+}
+
+/* Адаптивность для мобилок */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero h1 { font-size: 38px; }
+    .hero p { font-size: 16px; }
+    .hero-buttons { flex-direction: column; gap: 12px; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .contact-links { flex-direction: column; align-items: center; }
+    .contact-card { width: 100%; max-width: 300px; justify-content: center; }
+    .footer h2 { font-size: 28px; }
+    .audio-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+    .audio-grid {
+        grid-template-columns: 1fr;
+    }
 }
