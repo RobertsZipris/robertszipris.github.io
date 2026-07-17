@@ -154,60 +154,80 @@
             </h2>
             <div class="audio-grid">
                 
+                <!-- Аудио 1 -->
                 <div class="audio-card">
                     <div class="audio-info">
                         <span class="audio-genre">
                             <span class="en">Intro for video about Antarctica (RU)</span>
                             <span class="ru">Вступление к видео об Антарктиде (RU)</span>
                         </span>
-                        <h3>
-                            <span class="en"></span>
-                            <span class="ru"></span>
-                        </h3>
                     </div>
-                    <audio controls src="audio1.wav"></audio>
+                    <div class="custom-audio-player">
+                        <audio id="audio-1" src="audio1.wav"></audio>
+                        <button class="play-btn" onclick="toggleAudio('audio-1', this)">
+                            <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </button>
+                        <div class="player-timeline" onclick="seek(event, 'audio-1')">
+                            <div class="player-progress" id="progress-audio-1"></div>
+                        </div>
+                    </div>
                 </div>
 
+                <!-- Аудио 2 -->
                 <div class="audio-card">
                     <div class="audio-info">
                         <span class="audio-genre">
                             <span class="en">Real life story of cheating (RU)</span>
                             <span class="ru">История с жизни как девушка изменила парню (RU)</span>
                         </span>
-                        <h3>
-                            <span class="en"></span>
-                            <span class="ru"></span>
-                        </h3>
                     </div>
-                    <audio controls src="audio5.m4a"></audio>
+                    <div class="custom-audio-player">
+                        <audio id="audio-2" src="audio5.m4a"></audio>
+                        <button class="play-btn" onclick="toggleAudio('audio-2', this)">
+                            <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </button>
+                        <div class="player-timeline" onclick="seek(event, 'audio-2')">
+                            <div class="player-progress" id="progress-audio-2"></div>
+                        </div>
+                    </div>
                 </div>
 
+                <!-- Аудио 3 -->
                 <div class="audio-card">
                     <div class="audio-info">
                         <span class="audio-genre">
                             <span class="en">2nd player(RU)</span>
                             <span class="ru">Второй игрок (RU)</span>
                         </span>
-                        <h3>
-                            <span class="en"></span>
-                            <span class="ru"></span>
-                        </h3>
                     </div>
-                    <audio controls src="audio3.wav"></audio>
+                    <div class="custom-audio-player">
+                        <audio id="audio-3" src="audio3.wav"></audio>
+                        <button class="play-btn" onclick="toggleAudio('audio-3', this)">
+                            <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </button>
+                        <div class="player-timeline" onclick="seek(event, 'audio-3')">
+                            <div class="player-progress" id="progress-audio-3"></div>
+                        </div>
+                    </div>
                 </div>
 
+                <!-- Аудио 4 -->
                 <div class="audio-card">
                     <div class="audio-info">
                         <span class="audio-genre">
                             <span class="en">Coflict story in relationship (RU)</span>
                             <span class="ru">Конфликт в отношениях (RU)</span>
                         </span>
-                        <h3>
-                            <span class="en"></span>
-                            <span class="ru"></span>
-                        </h3>
                     </div>
-                    <audio controls src="audio4.wav"></audio>
+                    <div class="custom-audio-player">
+                        <audio id="audio-4" src="audio4.wav"></audio>
+                        <button class="play-btn" onclick="toggleAudio('audio-4', this)">
+                            <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </button>
+                        <div class="player-timeline" onclick="seek(event, 'audio-4')">
+                            <div class="player-progress" id="progress-audio-4"></div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -360,6 +380,52 @@
             }).catch(err => {
                 console.error('Ошибка копирования: ', err);
             });
+        }
+
+        // Логика кастомных аудио плееров
+        function toggleAudio(audioId, btn) {
+            const audio = document.getElementById(audioId);
+            const icon = btn.querySelector('path');
+            
+            // Останавливаем другие треки при старте нового
+            document.querySelectorAll('audio').forEach(track => {
+                if (track.id !== audioId && !track.paused) {
+                    track.pause();
+                    const otherBtn = track.parentElement.querySelector('.play-btn path');
+                    if (otherBtn) otherBtn.setAttribute('d', 'M8 5v14l11-7z');
+                }
+            });
+
+            if (audio.paused) {
+                audio.play();
+                icon.setAttribute('d', 'M6 19h4V5H6v14zm8-14v14h4V5h-4z'); // Иконка паузы
+            } else {
+                audio.pause();
+                icon.setAttribute('d', 'M8 5v14l11-7z'); // Иконка плей
+            }
+
+            audio.ontimeupdate = function() {
+                const progress = document.getElementById('progress-' + audioId);
+                if (progress && audio.duration) {
+                    progress.style.width = (audio.currentTime / audio.duration) * 100 + '%';
+                }
+            };
+            
+            audio.onended = function() {
+                icon.setAttribute('d', 'M8 5v14l11-7z');
+                const progress = document.getElementById('progress-' + audioId);
+                if (progress) progress.style.width = '0%';
+            };
+        }
+
+        function seek(event, audioId) {
+            const audio = document.getElementById(audioId);
+            const timeline = event.currentTarget;
+            const rect = timeline.getBoundingClientRect();
+            const percent = (event.clientX - rect.left) / timeline.offsetWidth;
+            if (audio.duration) {
+                audio.currentTime = percent * audio.duration;
+            }
         }
     </script>
 
